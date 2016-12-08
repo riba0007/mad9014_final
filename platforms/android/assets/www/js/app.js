@@ -1,3 +1,5 @@
+//NEXUS 5 - 1
+
 "use strict"
 
 var app = {
@@ -17,7 +19,7 @@ var app = {
         ev.preventDefault();
         let id = ev.currentTarget.getAttribute("data-ref");
         
-        app.pages.forEach(function(item) {
+        [].forEach.call(app.pages, function(item){
             item.id == id ? item.classList.add("active"):item.classList.remove("active");
         });
     },
@@ -123,7 +125,7 @@ var app = {
         app.pages = document.querySelectorAll('[data-role="page"]');
         app.links = document.querySelectorAll('[data-role="links"]');
         
-        app.links.forEach(function(item){
+        [].forEach.call(app.links, function(item){
             item.addEventListener("click", app.nav);
         });
         
