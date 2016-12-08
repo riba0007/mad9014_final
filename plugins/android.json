@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "ca.edumedia.riba0007.RIBA0007"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "ca.edumedia.riba0007.RIBA0007"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "ca.edumedia.riba0007.RIBA0007"
+        }
+    },
+    "dependent_plugins": {}
+}

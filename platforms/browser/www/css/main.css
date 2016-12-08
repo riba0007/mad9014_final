@@ -1,0 +1,132 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Armata', sans-serif;
+}
+[data-role="page"]{
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem 2rem 8rem 2rem;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+[data-role="page"].active{
+    display:block;
+    z-index: 20;
+    background-color: #EFEFEE;
+    color: #434343;
+}
+h1{
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 1rem;
+    text-shadow: 1px 1px 6px #bbb, -1px -1px 2px #ddd;
+}
+nav{
+    position:fixed;
+    bottom:0;
+    width: 100%;
+    height: 6rem;
+    background-color: #37C;
+    z-index: 30;
+    box-shadow: 0 -1px 6px hsla(0, 0%, 50%, 0.67);
+}
+nav div:hover {
+    text-shadow: 0px 0px 10px #68f9e2;
+    background-color: #357dd8;
+}
+nav div {
+    width: 50%;
+    display: inline-block;
+    float: left;
+    font-size: 1.6rem;
+    color: white;
+    padding: 1rem;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 5px #444;
+}
+img {
+    width: 2rem;
+    height: 2rem;
+    position: static;
+    vertical-align: middle;
+}
+
+table {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #bbb, -1px -1px 6px #ddd;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+th {
+    background-color: #3377cc;
+    color: white;
+    width: 25%;
+    padding: 1rem;
+}
+td{
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: 700;
+}
+#S th:first-child{
+	 border-radius: 10px 0 0 0;
+}
+#S th:last-child{
+	 border-radius: 0 10px 0 0;
+}
+#T th {
+    border-radius: 10px 10px 0 0;
+}
+#S tr:last-child {
+    border: none;
+}
+#T tr {
+    border: none;
+}
+tr {
+    border-bottom: 1px solid #bbb;
+}
+svg {
+    width: 3rem;
+    height: 3rem;
+}
+.fab {
+    background: url(../img/reload-lg-@2x.png);
+    background-repeat: no-repeat;
+    background-color: hsl(354, 40%, 70%);
+    background-position: center center;
+    background-size: 50% 50%;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    bottom: 7rem;
+    right: 2rem;
+    box-shadow: 2px 2px 6px #888;
+    z-index: 30;
+}
+.fab:hover {
+    background-color: hsl(354, 50%, 60%);
+}
+#Hufflepuff {
+    fill: #dad120;
+}
+#Slytherin {
+    fill: #008000;
+}
+#Ravenclaw {
+    fill: #2121b5;
+}
+#Gryffindor {
+    fill: #d21c1c;
+}
