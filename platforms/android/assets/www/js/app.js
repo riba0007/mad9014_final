@@ -6,15 +6,7 @@ var app = {
     pages: [], 
     links: [], 
     matchList: {},
-    
-    initialize: function() {
-        document.addEventListener('deviceready', app.onDeviceReady.bind(this), false);
-    },
-    
-    onDeviceReady: function() {
-        app.loadApp();
-    },
-    
+        
     nav: function(ev) {
         ev.preventDefault();
         let id = ev.currentTarget.getAttribute("data-ref");
@@ -42,7 +34,7 @@ var app = {
         });
     },
     
-    getTeamImage: function(teamName){
+    getTeamLogo: function(teamName){
         return "<svg viewBox='0 0 100 100'><use xlink:href='#"+teamName+"'></use></svg>";
     },
     
@@ -59,8 +51,10 @@ var app = {
         app.matchList.scores.forEach(function(item){
             innerHTML = innerHTML.concat("<table><tr><th colspan=3>",item.date,"</th></tr>");
             item.games.forEach(function(game){
-                innerHTML = innerHTML.concat("<tr><td>",app.getTeamImage(app.getTeamName(game.home)),
-                                             "</td><td>X</td><td>",app.getTeamImage(app.getTeamName(game.away)),"</td></tr>");
+                let homeName = app.getTeamName(game.home);
+                let awayName = app.getTeamName(game.away);
+                innerHTML = innerHTML.concat("<tr><td>",app.getTeamLogo(homeName),"<p>",homeName,
+                                             "</p></td><td>X</td><td>",app.getTeamLogo(awayName),"<p>",awayName,"</p></td></tr>");
             });
             innerHTML = innerHTML.concat("</table>");
         });
@@ -105,10 +99,11 @@ var app = {
         let scores = app.calculateScores();
         
         //create HTML
-        let innerHTML = "<table><h1>Scores</h1><tr><th>Team</th><th>Wins</th><th>Ties</th><th>Losses</th></tr>";
+        let innerHTML = "<table><h1>Scores</h1><tr><th colspan='2'>Team</th><th>Wins</th><th>Ties</th><th>Losses</th></tr>";
         
         scores.forEach(function(item){
-            innerHTML = innerHTML.concat("<tr><td>",app.getTeamImage(app.getTeamName(item[0])),"</td><td>",item[1],"</td><td>",item[2],"</td><td>",item[3],"</td></tr>");
+            let teamName = app.getTeamName(item[0]);
+            innerHTML = innerHTML.concat("<tr><td>",app.getTeamLogo(teamName),"</td><td>"+teamName+"</td><td>",item[1],"</td><td>",item[2],"</td><td>",item[3],"</td></tr>");
         });
         
         innerHTML = innerHTML.concat("</table>");
@@ -151,7 +146,7 @@ var app = {
         //console.log(app.matchList);    
     },
     
-    loadApp: function() {
+    init: function() {
         app.loadItens();
         app.loadData();
     }
@@ -159,9 +154,9 @@ var app = {
 
 //initialize app
 if (document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1) {
-    //console.log("device");
-    app.initialize();
+    console.log("device");
+    document.addEventListener('deviceready', app.init, false);
 } else {
-    //console.log("browser");
-    app.loadApp();
+    console.log("browser");
+    document.addEventListener("DOMContentLoaded", app.init);
 }
